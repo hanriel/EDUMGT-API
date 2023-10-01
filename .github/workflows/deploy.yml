@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Get EDUMGT-API version from package.json
-        run: echo "CLIENT_PACKAGE_VERSION=$(node -p "require('./client/package.json').version")" >> $GITHUB_ENV
+        run: echo "CLIENT_PACKAGE_VERSION=$(node -p "require('package.json').version")" >> $GITHUB_ENV
 
       - name: Set up Docker
         uses: docker-practice/actions-setup-docker@master
 
-      - name: Build Docker Client Image
-        run: docker build --file=client/Dockerfile -t edumgt-api:latest -t edumgt-api:${{ env.CLIENT_PACKAGE_VERSION }} .
+      - name: Build Docker Image
+        run: docker build -t edumgt-api:latest -t edumgt-api:${{ env.CLIENT_PACKAGE_VERSION }} .
 
       - name: Setup key
         run: |
