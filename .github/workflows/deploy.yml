@@ -1,0 +1,32 @@
+name: Docker Image deployment
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get EDUMGT-API version from package.json
+        run: echo "CLIENT_PACKAGE_VERSION=$(node -p "require('./client/package.json').version")" >> $GITHUB_ENV
+
+      - name: Set up Docker
+        uses: docker-practice/actions-setup-docker@master
+
+      - name: Build Docker Client Image
+        run: docker build --file=client/Dockerfile -t edumgt-api:latest -t edumgt-api:${{ env.CLIENT_PACKAGE_VERSION }} .
+
+      - name: Setup key
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{ secrets.STAGE_ID_RSA }}" > "$HOME/.ssh/key"
+          chmod 600 "$HOME/.ssh/key"
+
+      - name: Deploy Docker Container
+        run: |
+          docker save edumgt-api | ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no ${{ secrets.STAGE_SERVER_USER }}@${{ secrets.STAGE_SERVER_IP }} -p ${{ secrets.STAGE_SERVER_PORT }} 'docker load'
