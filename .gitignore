@@ -1,7 +1,6 @@
-# dependencies
+# compiled output
+/dist
 /node_modules
-/.pnp
-.pnp.js
 
 # Logs
 logs
@@ -19,15 +18,12 @@ lerna-debug.log*
 /coverage
 /.nyc_output
 
-# production
-/build
-
 # local env files
 .env*.local
+.env
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # IDEs and editors
 /.idea
