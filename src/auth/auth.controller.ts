@@ -4,12 +4,10 @@ import {
   HttpCode,
   HttpStatus,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from '../users/dto/create-user.dto';
-import { AuthGuard } from './guards/auth.guard';
 
 @Controller('auth')
 @ApiTags('auth')
