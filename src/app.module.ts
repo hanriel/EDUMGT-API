@@ -8,10 +8,15 @@ import { UserEntity } from './users/entities/user.entity';
 import { FileEntity } from './files/entities/file.entity';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { TasksModule } from './tasks/tasks.module';
+import { TelegrafModule } from 'nestjs-telegraf';
+import { session } from 'telegraf';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -23,6 +28,11 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
       charset: 'utf8mb4',
     }),
+    TelegrafModule.forRoot({
+      token: process.env.TELEGRAM_BOT_TOKEN,
+      middlewares: [session()],
+    }),
+    TasksModule,
     UsersModule,
     FilesModule,
     AuthModule,
