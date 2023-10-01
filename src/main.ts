@@ -12,8 +12,8 @@ async function bootstrap() {
   app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
 
   const config = new DocumentBuilder()
-    .setTitle('EDUMGT-BACK')
-    .setVersion('0.1.0')
+    .setTitle('EDUMGT-API')
+    .setVersion(require('../package.json').version)
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);

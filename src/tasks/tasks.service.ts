@@ -2,7 +2,7 @@ import { Injectable, Optional } from '@nestjs/common'
 import { Cron } from '@nestjs/schedule';
 import axios from 'axios';
 import { wrapper } from 'axios-cookiejar-support';
-import { Command, Ctx, InjectBot, Start, Update } from 'nestjs-telegraf'
+import { Ctx, InjectBot, Update } from 'nestjs-telegraf'
 import { Markup, Telegraf } from 'telegraf'
 import { CookieJar } from 'tough-cookie';
 import { Context } from './interface/context.interface'
@@ -58,7 +58,7 @@ export class TasksService {
             await this.webClient
                 .get('https://epos-rep.permkrai.ru/')
                 .then((response) => {
-                    let regexp = new RegExp('action=\"(.*)\" ');
+                    let regexp = /action="(.*)" /;
                     this.csrf_token = regexp.exec(response.data)[1].replaceAll('&amp;', '&')
                 });
             
@@ -343,7 +343,7 @@ export class TasksService {
                 if(cell[20].value == "100,00") return
                 test[index]=[cell[4].value, cell[20].value]
             });
-            test = test.slice(1, -1).sort();
+            test = test.slice(1, -1);
             
             let msg = `✅ Качество ведения журнала на ${date.toLocaleDateString()}\n`;
             test.forEach((element) => msg += element[0] + " - " + element[1]+ "%\n")
