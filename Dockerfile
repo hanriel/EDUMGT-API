@@ -3,7 +3,7 @@ LABEL authors="Hanriel"
 
 WORKDIR /user/src/app
 
-COPY /server .
+COPY . .
 
 RUN npm ci --omit=dev
 
