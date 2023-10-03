@@ -1,30 +1,21 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://edumgt-api.hanriel.ru/" target="blank"><img src="https://edumgt.hanriel.ru/images/logo-180x180.png" width="180" alt="EDUMGT Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <p align="center">API for <a href="http://edumgt.hanriel.ru" target="_blank">EDUMGT</a> project.</p>
+  <p align="center">
+
+[![Quality Gate Status](https://sonarqube.hanriel.ru/api/project_badges/measure?project=hanriel_edumgt-back_AYmQPadDN-ibcQjN1GP6&metric=alert_status&token=sqb_3119b5ad16e710da9a5d1eda6a052fd48a389ab7)](https://sonarqube.hanriel.ru/dashboard?id=hanriel_edumgt-back_AYmQPadDN-ibcQjN1GP6)
+[![Docker deployment](https://github.com/hanriel/EDUMGT-API/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hanriel/EDUMGT-API/actions/workflows/deploy.yml)
+
+  </p>
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+EDUMGT-API - API for EDUMGT (Education organization managhment system). Basen on [Nest](https://github.com/nestjs/nest) framework.
 
 ## Installation
 
@@ -45,7 +36,39 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Build docker image
+
+```bash
+docker build -t edumgt-api:latest
+```
+
+## Enviroment varibles
+
+### Database
+
+```env
+DB_HOST = "127.0.0.1"
+DB_PORT = "3306"
+DB_USER = "user"
+DB_PASSWORD = "password"
+DB_NAME = "edumgt"
+```
+
+### TelegramBot
+
+```env
+TELEGRAM_BOT_TOKEN = "12345"
+ADMIN_TG_CHATID = "1234"
+```
+
+### EPOS ([epos.permkrai.ru/](https://epos.permkrai.ru))
+
+```env
+EPOS_LOGIN = "1234"
+EPOS_PASSWORD = "1234"
+```
+
+## Test (not now)
 
 ```bash
 # unit tests
@@ -58,16 +81,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Danil Fedoseev](https://hanriel.ru)
+- Website - [https://edumgt-api.hanriel.ru](https://edumgt-api.hanriel.ru/)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+EDUMGT-API is [MIT licensed](LICENSE).
