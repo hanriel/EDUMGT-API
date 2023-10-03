@@ -7,7 +7,10 @@
 
   <p align="center">API for <a href="http://edumgt.hanriel.ru" target="_blank">EDUMGT</a> project.</p>
   <p align="center">
+
 [![Quality Gate Status](https://sonarqube.hanriel.ru/api/project_badges/measure?project=hanriel_edumgt-back_AYmQPadDN-ibcQjN1GP6&metric=alert_status&token=sqb_3119b5ad16e710da9a5d1eda6a052fd48a389ab7)](https://sonarqube.hanriel.ru/dashboard?id=hanriel_edumgt-back_AYmQPadDN-ibcQjN1GP6)
+[![Docker deployment](https://github.com/hanriel/EDUMGT-API/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hanriel/EDUMGT-API/actions/workflows/deploy.yml)
+
   </p>
 
 ## Description
