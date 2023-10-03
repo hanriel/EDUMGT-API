@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import { PartialType } from '@nestjs/swagger';
-import { CreateFileDto } from './create-file.dto';
+//import { PartialType } from '@nestjs/swagger';
+//import { CreateFileDto } from './create-file.dto';
 
-export class UpdateFileDto extends PartialType(CreateFileDto) {}
+//export class UpdateFileDto extends PartialType(CreateFileDto) {}
