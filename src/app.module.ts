@@ -9,9 +9,7 @@ import { FileEntity } from './files/entities/file.entity';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { ScheduleModule } from '@nestjs/schedule';
-import { TasksModule } from './tasks/tasks.module';
-import { TelegrafModule } from 'nestjs-telegraf';
-import { session } from 'telegraf';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
   imports: [
@@ -28,11 +26,7 @@ import { session } from 'telegraf';
       synchronize: true,
       charset: 'utf8mb4',
     }),
-    TelegrafModule.forRoot({
-      token: process.env.TELEGRAM_BOT_TOKEN,
-      middlewares: [session()],
-    }),
-    TasksModule,
+    TelegramModule,
     UsersModule,
     FilesModule,
     AuthModule,

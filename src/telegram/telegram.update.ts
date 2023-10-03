@@ -1,11 +1,11 @@
 import { Action, Command, Ctx, Start, Update } from 'nestjs-telegraf'
-import { TasksService } from './tasks.service'
+import { TelegramService } from './telegram.service'
 import { Context } from './interface/context.interface'
 import { START_SCENE_ID } from './scene/start.scene'
 
 @Update()
-export class TasksUpdate {
-  constructor(private readonly telegramService: TasksService) {}
+export class TelegramUpdate {
+  constructor(private readonly telegramService: TelegramService) {}
 
   @Start()
   async onStart(@Ctx() context: Context) {
