@@ -1,10 +1,10 @@
 {
-  "name": "edumgt-back",
-  "version": "0.0.3",
+  "name": "edumgt-api",
+  "version": "0.0.4",
   "description": "",
-  "author": "",
+  "author": "Fedoseev Danil",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
