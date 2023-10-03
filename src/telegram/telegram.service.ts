@@ -9,7 +9,7 @@ import { Context } from './interface/context.interface'
 
 @Update()
 @Injectable()
-export class TasksService {
+export class TelegramService {
 
     jar = new CookieJar();
     webClient;

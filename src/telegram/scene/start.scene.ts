@@ -1,14 +1,14 @@
 import { Ctx, Hears, Scene, SceneEnter } from 'nestjs-telegraf'
 import { Context } from '../interface/context.interface'
 import { SETTINGS_SCENE_ID } from './settings.scene'
-import { TasksService } from '../tasks.service'
+import { TelegramService } from '../telegram.service'
 import { REPORTS_SCENE_ID } from './reports.scene'
  
 export const START_SCENE_ID = 'start'
 @Scene(START_SCENE_ID)
 export class StartScene {
   constructor(
-    private readonly telegramService: TasksService,
+    private readonly telegramService: TelegramService,
   ) {}
 
   @SceneEnter()
