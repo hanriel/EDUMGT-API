@@ -21,11 +21,12 @@
 // SOFTWARE.
 
 import { diskStorage } from 'multer';
+const crypto = require('crypto');
 
 const genereteId = () =>
   Array(18)
     .fill(null)
-    .map(() => Math.round(Math.random() * 16).toString(16))
+    .map(() => Math.round(crypto.randomBytes(1) * 16).toString(16))
     .join('');
 
 const normalizeFileName = (req, file, callback) => {
