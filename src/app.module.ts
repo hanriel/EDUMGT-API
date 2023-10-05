@@ -32,8 +32,6 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TelegramModule } from './telegram/telegram.module';
-import { OrganizationsModule } from './organizations/organizations.module';
-import { OrganizationEntity } from './organizations/entities/organization.entity';
 
 @Module({
   imports: [
@@ -46,7 +44,7 @@ import { OrganizationEntity } from './organizations/entities/organization.entity
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UserEntity, FileEntity, OrganizationEntity],
+      entities: [UserEntity, FileEntity],
       synchronize: true,
       charset: 'utf8mb4',
     }),
@@ -54,7 +52,6 @@ import { OrganizationEntity } from './organizations/entities/organization.entity
     UsersModule,
     FilesModule,
     AuthModule,
-    OrganizationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
