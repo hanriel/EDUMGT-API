@@ -62,6 +62,13 @@ export class TelegramService {
         this.bot.telegram.sendMessage(process.env.ADMIN_TG_CHATID, 'Утреннее сообщение в 7:45');
     }
 
+    @Cron('0 0 22 * * 1-5', {
+        timeZone: "Asia/Yekaterinburg"
+    })
+    handleCronEveneeng() {
+        this.bot.telegram.sendMessage(process.env.ADMIN_TG_CHATID, 'Вечернее сообщение в 22:00');
+    }
+
     async getStartMessage(telgramId: number) {
         
         let text: string
