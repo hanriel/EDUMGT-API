@@ -55,18 +55,9 @@ export class TelegramService {
         console.log('Taksk Service constructor is started')
     }
 
-    @Cron('0 45 7 * * 1-5', {
-        timeZone: "Asia/Yekaterinburg"
-    })
+    @Cron('0 45 7 * * 1-5')
     handleCron() {
         this.bot.telegram.sendMessage(process.env.ADMIN_TG_CHATID, 'Утреннее сообщение в 7:45');
-    }
-
-    @Cron('0 0 22 * * 1-5', {
-        timeZone: "Asia/Yekaterinburg"
-    })
-    handleCronEveneeng() {
-        this.bot.telegram.sendMessage(process.env.ADMIN_TG_CHATID, 'Вечернее сообщение в 22:00');
     }
 
     async getStartMessage(telgramId: number) {
